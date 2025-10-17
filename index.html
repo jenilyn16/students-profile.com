@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Student Profiles</title>
+    <meta name="description" content="Explore the profiles of our talented students.">
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <!-- logo-->
+        <div class="wrap">
+            <a class="brand" href="#top">
+                <img src="profile.jpg" alt="Logo">
+                <b>Student Profiles</b>
+            </a>
+            <!-- Navigation bar-->
+            <nav>
+                <a class="nav-link" href="#top">Home</a>
+                <a class="nav-link" href="#students">Students</a>
+                <a class="btn" href="career.html">Career Interest</a>
+                <a class="nav-link" href="#gallery">Gallery</a>
+                <a class="nav-link" href="#about">About</a>
+                <a class="nav-link" href="welcome.html">Log out</a>
+            </nav>
+        </div>
+    </header>
+    <!--Welcome-->
+    <main>
+        <section class="hero" id="top">
+            <h1>“Discover the stories behind every student, one profile at a time!”</h1>
+            <p>
+                Welcome to our Student Directory! 🎓 <br>
+                Here you can explore profiles of all our amazing students.<br>
+                Learn their age, course, and discover something interesting about each of them.<br>
+                Use the search bar or filter by course to find the students you want to know more about.
+            </p>
+        </section>
+
+        <h2 id="students">Students</h2>
+        <!--Search bar-->
+        <div class="controls">
+            <input type="text" id="search-bar" placeholder="Search students by name..." onkeyup="searchStudents()" />
+            <button onclick="toggleAddForm()">+ Add New Student</button>
+        </div>
+        <!--add new students-->
+        <section id="add-student" class="form-panel">
+            <h3>Add New Student</h3>
+            <div class="form-grid">
+                <div class="form-group">
+                    <label for="new-name">Full Name</label>
+                    <input type="text" id="new-name" placeholder="Enter full name" required>
+                </div>
+                <div class="form-group">
+                    <label for="new-student-number">Student Number</label>
+                    <input type="text" id="new-student-number" placeholder="e.g. 2025-001">
+                </div>
+                <div class="form-group">
+                    <label for="new-age">Age</label>
+                    <input type="number" id="new-age" placeholder="Enter age">
+                </div>
+                <div class="form-group">
+                    <label for="new-year">Year / Term</label>
+                    <input type="text" id="new-year" placeholder="e.g. 3rd Year">
+                </div>
+                <div class="form-group">
+                    <label for="new-course">Course / Program</label>
+                    <input type="text" id="new-course" placeholder="Enter course name">
+                </div>
+                <div class="form-group">
+                    <label for="new-dob">Date of Birth</label>
+                    <input type="date" id="new-dob">
+                </div>
+                <div class="form-group">
+                    <label for="new-gender">Gender</label>
+                    <input type="text" id="new-gender" placeholder="Enter gender">
+                </div>
+                <div class="form-group">
+                    <label for="new-contact">Contact Number</label>
+                    <input type="text" id="new-contact" placeholder="e.g. +63 912 345 6789">
+                </div>
+                <div class="form-group full-width">
+                    <label for="new-email">Email Address</label>
+                    <input type="email" id="new-email" placeholder="Enter email">
+                </div>
+                <div class="form-group full-width">
+                    <label for="new-address">Address</label>
+                    <input type="text" id="new-address" placeholder="Enter full address">
+                </div>
+                <div class="form-group full-width">
+                    <label for="new-skills">Skills / Talents</label>
+                    <input type="text" id="new-skills" placeholder="e.g. Coding, Web Design">
+                </div>
+                <div class="form-group full-width">
+                    <label for="new-hobbies">Hobbies / Interests</label>
+                    <input type="text" id="new-hobbies" placeholder="e.g. Drawing, Gaming">
+                </div>
+                <div class="form-group full-width">
+                    <label for="new-achievements">Achievements / Awards</label>
+                    <input type="text" id="new-achievements" placeholder="e.g. Best in Tech Fair">
+                </div>
+                <div class="form-group full-width">
+                    <label for="new-motto">Motto / Life Quote</label>
+                    <input type="text" id="new-motto" placeholder="Enter motto or quote">
+                </div>
+                <div class="form-group full-width">
+                    <label for="new-img">Image URL</label>
+                    <input type="text" id="new-img" placeholder="https://...">
+                </div>
+
+                <div class="form-group full-width">
+                    <h4>Educational Background</h4>
+                </div>
+                <div class="form-group">
+                    <label for="new-elementary">Elementary School</label>
+                    <input type="text" id="new-elementary" placeholder="School – Year graduated">
+                </div>
+                <div class="form-group">
+                    <label for="new-junior">Junior High School</label>
+                    <input type="text" id="new-junior" placeholder="School – Year graduated">
+                </div>
+                <div class="form-group">
+                    <label for="new-senior">Senior High School</label>
+                    <input type="text" id="new-senior" placeholder="School – Strand – Year">
+                </div>
+                <div class="form-group">
+                    <label for="new-college">College / Current Level</label>
+                    <input type="text" id="new-college" placeholder="School / Level – Year">
+                </div>
+                <div class="form-group full-width">
+                    <label for="new-reason">Why did you choose this course?</label>
+                    <textarea id="new-reason" rows="2" placeholder="Enter reason or fun fact"></textarea>
+                </div>
+                <!--career interest checkbox-->
+                <div class="form-group full-width">
+                    <label>Career Interests (Select all that apply)</label>
+                    <div class="career-options">
+                        <label><input type="checkbox" value="Software Development"> Software Development</label><br>
+                        <label><input type="checkbox" value="Database and Systems Administration"> Database and Systems Administration</label><br>
+                        <label><input type="checkbox" value="Cybersecurity"> Cybersecurity</label><br>
+                        <label><input type="checkbox" value="Artificial Intelligence and Machine Learning"> Artificial Intelligence and Machine Learning</label><br>
+                        <label><input type="checkbox" value="Networking and Cloud Computing"> Networking and Cloud Computing</label><br>
+                        <label><input type="checkbox" value="Data Science and Analytics"> Data Science and Analytics</label><br>
+                        <label><input type="checkbox" value="Web and UX/UI Design"> Web and UX/UI Design</label><br>
+                        <label><input type="checkbox" value="IT Support and Technical Services"> IT Support and Technical Services</label><br>
+                        <label><input type="checkbox" value="Research and Education"> Research and Education</label><br>
+                        <label><input type="checkbox" value="Entrepreneurship and Innovation"> Entrepreneurship and Innovation</label>
+                    </div>
+                </div>
+            </div>
+            <!--add students and cancel button-->
+            <div class="form-footer">
+                <button type="button" class="btn-secondary" onclick="toggleAddForm()">Cancel</button>
+                <button type="button" class="btn-primary" onclick="addStudent()">Add Student</button>
+            </div>
+        </section>
+        <!--Categorization of students its either IT or CS-->
+        <div class="tabs">
+            <button class="tab-btn active" onclick="filterProfiles('all', event)">All</button>
+            <button class="tab-btn" onclick="filterProfiles('IT', event)">IT</button>
+            <button class="tab-btn" onclick="filterProfiles('CS', event)">CS</button>
+        </div>
+        <!--example of students card and it's display info-->
+        <div class="grid" id="profile-grid">
+            <div class="card"
+                 data-course="IT"
+                 data-full='{"student_number":"2025-001","dob":"2005-01-15","gender":"Female","address":"123 Main St","email":"jenilyn@example.com","contact":"09171234567","skills":"Coding, Web Design","hobbies":"Drawing, Gaming","achievements":"Best in Tech Fair","motto":"Never stop learning","education":{"elementary":"ABC Elementary – 2017","junior":"XYZ Junior High – 2021","senior":"LMN Senior High – STEM – 2023","college":"Currently IT College – Present"},"reason":"Because I love technology"}'>
+                <img src="student1.png" alt="Jenilyn Salomeo">
+                <div class="pad">
+                    <h3 class="title">Jenilyn Salomeo</h3>
+                    <p class="meta">Age: 19 | 3rd Year</p>
+                    <p>Course: IT</p>
+                </div>
+            </div>
+
+            <div class="card"
+                 data-course="CS"
+                 data-full='{"student_number":"2025-002","dob":"2004-09-10","gender":"Male","address":"456 Elm St","email":"mark@example.com","contact":"09179876543","skills":"AI, Robotics","hobbies":"Chess, Coding","achievements":"Robotics Champion","motto":"Code your dreams","education":{"elementary":"DEF Elementary – 2016","junior":"UVW Junior High – 2020","senior":"OPQ Senior High – STEM – 2022","college":"Currently CS College – Present"},"reason":"Interested in AI and technology"}'>
+                <img src="student2.jpg" alt="Mark Santos">
+                <div class="pad">
+                    <h3 class="title">Mark Santos</h3>
+                    <p class="meta">Age: 20 | 4th Year</p>
+                    <p>Course: CS</p>
+                </div>
+            </div>
+        </div>
+        <!--Students modal displaying all their information-->
+        <div id="student-modal">
+            <div class="modal-content">
+                <span class="close-btn" onclick="closeModal()">&times;</span>
+                <div id="student-view">
+                    <h2 id="view-name">Name</h2>
+                    <img id="view-img" src="" alt="" style="max-width:150px; border-radius:8px; margin-bottom:16px;">
+                    <div class="info-grid">
+                        <div><strong>Student Number:</strong> <span id="view-student-number"></span></div>
+                        <div><strong>Age:</strong> <span id="view-age"></span></div>
+                        <div><strong>Year / Term:</strong> <span id="view-year"></span></div>
+                        <div><strong>Course:</strong> <span id="view-course"></span></div>
+                        <div><strong>Date of Birth:</strong> <span id="view-dob"></span></div>
+                        <div><strong>Gender:</strong> <span id="view-gender"></span></div>
+                        <div><strong>Contact:</strong> <span id="view-contact"></span></div>
+                        <div><strong>Email:</strong> <span id="view-email"></span></div>
+                        <div><strong>Address:</strong> <span id="view-address"></span></div>
+                        <div><strong>Skills:</strong> <span id="view-skills"></span></div>
+                        <div><strong>Hobbies:</strong> <span id="view-hobbies"></span></div>
+                        <div><strong>Achievements:</strong> <span id="view-achievements"></span></div>
+                        <div><strong>Motto / Quote:</strong> <span id="view-motto"></span></div>
+                        <div><strong>Career Interests:</strong> <span id="view-career"></span></div>
+                        <div class="full-span"><strong>Reason / Fun Fact:</strong> <span id="view-reason"></span></div>
+                        <div class="full-span"><strong>Educational Background:</strong>
+                            <div style="margin-left:16px;">
+                                <div><strong>Elementary:</strong> <span id="view-elementary"></span></div>
+                                <div><strong>Junior High:</strong> <span id="view-junior"></span></div>
+                                <div><strong>Senior High:</strong> <span id="view-senior"></span></div>
+                                <div><strong>College:</strong> <span id="view-college"></span></div>
+                            </div>
+                        </div>
+                        <button id="btn-to-edit" class="btn-primary" style="margin-top:24px;" onclick="switchToEdit()">Edit</button>
+                        <button id="btn-delete" class="btn-secondary" style="margin-top:8px; background:#e74c3c;" onclick="deleteStudent()">Delete</button>
+                    </div>
+                </div>
+                <!--edit section of their information listed-->
+                <form id="student-edit" class="modal-form" style="display:none;">
+                    <h2>Edit Student Information</h2>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="edit-name">Full Name</label>
+                            <input type="text" id="edit-name">
+                        </div>
+                        <div class="form-group">
+                            <label for="edit-student-number">Student Number</label>
+                            <input type="text" id="edit-student-number">
+                        </div>
+                        <div class="form-group">
+                            <label for="edit-age">Age</label>
+                            <input type="number" id="edit-age">
+                        </div>
+                        <div class="form-group">
+                            <label for="edit-year">Year / Term</label>
+                            <input type="text" id="edit-year">
+                        </div>
+                        <div class="form-group">
+                            <label for="edit-course">Course / Program</label>
+                            <input type="text" id="edit-course">
+                        </div>
+                        <div class="form-group">
+                            <label for="edit-dob">Date of Birth</label>
+                            <input type="date" id="edit-dob">
+                        </div>
+                        <div class="form-group">
+                            <label for="edit-gender">Gender</label>
+                            <input type="text" id="edit-gender">
+                        </div>
+                        <div class="form-group">
+                            <label for="edit-contact">Contact Number</label>
+                            <input type="text" id="edit-contact">
+                        </div>
+                        <div class="form-group full-width">
+                            <label for="edit-email">Email Address</label>
+                            <input type="email" id="edit-email">
+                        </div>
+                        <div class="form-group full-width">
+                            <label for="edit-address">Address</label>
+                            <input type="text" id="edit-address">
+                        </div>
+                        <div class="form-group full-width">
+                            <label for="edit-skills">Skills / Talents</label>
+                            <input type="text" id="edit-skills">
+                        </div>
+                        <div class="form-group full-width">
+                            <label for="edit-hobbies">Hobbies / Interests</label>
+                            <input type="text" id="edit-hobbies">
+                        </div>
+                        <div class="form-group full-width">
+                            <label for="edit-achievements">Achievements / Awards</label>
+                            <input type="text" id="edit-achievements">
+                        </div>
+                        <div class="form-group full-width">
+                            <label for="edit-motto">Motto / Life Quote</label>
+                            <input type="text" id="edit-motto">
+                        </div>
+                        <div class="form-group full-width">
+                            <label for="edit-img">Image URL</label>
+                            <input type="text" id="edit-img">
+                        </div>
+                        <div class="form-group full-width">
+                            <h4>Educational Background</h4>
+                        </div>
+                        <div class="form-group">
+                            <label for="edit-elementary">Elementary School</label>
+                            <input type="text" id="edit-elementary">
+                        </div>
+                        <div class="form-group">
+                            <label for="edit-junior">Junior High School</label>
+                            <input type="text" id="edit-junior">
+                        </div>
+                        <div class="form-group">
+                            <label for="edit-senior">Senior High School</label>
+                            <input type="text" id="edit-senior">
+                        </div>
+                        <div class="form-group">
+                            <label for="edit-college">College / Current Level</label>
+                            <input type="text" id="edit-college">
+                        </div>
+                        <div class="form-group full-width">
+                            <label for="edit-reason">Reason / Fun Fact</label>
+                            <textarea id="edit-reason" rows="2"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-footer">
+                        <button type="button" class="btn-secondary" onclick="cancelEdit()">Cancel</button>
+                        <button type="submit" class="btn-primary">Save Changes</button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+        <!--Gallery-->
+        <section id="gallery">
+            <h2>Gallery</h2>
+                <div class="gallery-grid">
+                    <div class="gallery-card">
+                        <img src="image1.jpg" alt="">
+                        <h4>LFCA122M062</h4>
+                        <p>Set A</p>
+                        <p>During Discussion in Computer Lab</p>
+                    </div>
+                </div>
+                <div class="gallery-grid">
+                    <div class="gallery-card">
+                        <img src="image2.jpg" alt="">
+                        <h4>LFCA122M062</h4>
+                        <p>Set A</p>
+                        <p>During Discussion in Computer Lab</p>
+                    </div>
+                </div>
+        </section>
+        <!--Gallery pop-up-->
+        <div id="gallery-popup">
+            <button class="close-gallery" onclick="closeGalleryPopup()">×</button>
+            <img id="gallery-popup-img" src="" alt="Gallery Preview">
+        </div>
+        <!--about bar-->
+        <section id="about" style="margin: 48px 0;">
+            <h2>About</h2>
+            <p>
+                We are committed to showcasing the talent of our students. This directory helps students
+                connect and share their skills, ages, courses, and interesting facts about them. It’s a fun
+                way to learn more about everyone in our community!
+            </p>
+        </section>
+
+    </main>
+    <!--footer-->
+    <footer>
+        <div>
+            &copy; 2025 Student Directory — All rights reserved.
+        </div>
+    </footer>
+    <!--connection to js and css style-->
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
+
+</body>
+
+</html>

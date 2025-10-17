@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Welcome | Student Profiles</title>
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="welcome.css">
+</head>
+
+<body>
+    <div class="welcome-container">
+        
+        <div class="welcome-box fade-in">
+            <img src="modalbackground.png" alt="Logo" class="logo">
+            <h1>Welcome to <span>Student Profiles</span></h1>
+            <p>Explore, connect, and discover inspiring stories of students!</p>
+
+            <div class="btn-group">
+                <button class="btn" onclick="openModal('login')">Log In</button>
+                <button class="btn-outline" onclick="openModal('signup')">Sign Up</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- LOGIN MODAL -->
+    <div id="login-modal" class="modal">
+        <div class="modal-content slide-up">
+            <span class="close" onclick="closeModal('login')">&times;</span>
+            <h2>Log In</h2>
+            <input type="text" id="login-user" placeholder="Username" required>
+            <input type="password" id="login-pass" placeholder="Password" required>
+            <button class="btn" onclick="login()">Log In</button>
+        </div>
+    </div>
+
+    <!-- SIGNUP MODAL -->
+    <div id="signup-modal" class="modal">
+        <div class="modal-content slide-up">
+            <span class="close" onclick="closeModal('signup')">&times;</span>
+            <h2>Sign up</h2>
+            <input type="text" id="signup-user" placeholder="Create Username" required>
+            <input type="password" id="signup-pass" placeholder="Create Password" required>
+            <button class="btn" onclick="signup()">Sign up</button>
+        </div>
+    </div>
+
+    <script src="welcome.js"></script>
+</body>
+
+</html>
